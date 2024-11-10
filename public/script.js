@@ -9,7 +9,7 @@ function displayMessage(message, isError = false) {
 document.getElementById('file-upload').addEventListener('change', function(event) {
     const selectedFiles = event.target.files;
     if (selectedFiles.length > 0) {
-        displayMessage(`Please uplaod your MEMORIES to the wedding album!`);
+        displayMessage(`Please upload your MEMORIES to the wedding album!`);
     } else {
         displayMessage('Please add your MEMORIES to the wedding album!');
     }

@@ -1,0 +1,267 @@
+/* General body styles */
+body {
+    font-family: 'Georgia', serif;
+    background: #f9f3f3;
+    color: #555;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('https://www.w3schools.com/w3images/flowers.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+/* Header Section (Couple images with Cyclic Motion) */
+.header-section {
+    position: relative;
+    width: 100%;
+    height: 30%;
+    overflow: hidden;
+    background-color: #d68a7b;
+}
+
+.header-carousel {
+    display: flex;
+    width: max-content; /* Adjust width to accommodate all images */
+    animation: slideImages 90s linear infinite; /* Slower speed */
+}
+
+.header-carousel img {
+    width: 300px;
+    height: 200px;
+    margin: 0 10px;
+    object-fit: cover;
+}
+
+/* Adding opacity transition for the images */
+.header-carousel img:nth-child(n+6) {
+    opacity: 0; /* Hide duplicate images initially */
+    animation: fadeInOut 90s linear infinite;
+}
+
+/* Animation for cyclic motion of images */
+@keyframes slideImages {
+    0% {
+        transform: translateX(0); /* Start position */
+    }
+    25% {
+        transform: translateX(-25%); /* Move first 25% */
+    }
+    50% {
+        transform: translateX(-50%); /* Move to 50% (middle point) */
+    }
+    75% {
+        transform: translateX(-75%); /* Move to 75% */
+    }
+    100% {
+        transform: translateX(0); /* Reset to start */
+    }
+}
+
+/* Opacity transition (fadeInOut) for images */
+@keyframes fadeInOut {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Optional: Animation to make images blink/fade */
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Separator Line */
+.separator {
+    border-top: 3px solid #d68a7b;
+    margin: 20px 0;
+}
+
+/* Main Content Section (Image Upload) */
+.upload-container {
+    width: 40%;
+    margin: 0 auto;
+    padding: 30px;
+    /* background-image: url('https://www.w3schools.com/w3images/flowers.jpg'); */
+    background-size: cover; /* Ensure the image covers the container */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 2px solid #f0e6f1;
+    height: 250px; /* Adjusted height */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* Header styling for upload section */
+.upload-container h1 {
+    font-family: 'Playfair Display', serif; /* New font family */
+    font-size: 2.5rem;
+    color: #d68a7b;
+    margin: -10px 0 20px 0;
+    font-weight: bold; /* Makes the font weight bold */
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+}
+
+
+/* Fancy file input styling */
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-input {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #d68a7b;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    margin-top: 10px; /* Optional: Add a small space between button and file input */
+}
+
+.custom-file-input:hover, button:hover {
+    background-color: #c77a6a;
+    transform: scale(1.05);
+}
+
+.custom-file-input:active, button:active {
+    transform: scale(1);
+}
+
+/* Button styling */
+button {
+    background-color: #d68a7b;
+    color: white;
+    border: none;
+    padding: 12px 30px; /* Same as the custom file input */
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+   
+button:hover {
+    background-color: #c77a6a;
+}
+
+/* Form styling for better layout */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.separator-bottom {
+    /* border-top: 3px solid #d68a7b; */
+    margin: 10px 0;
+}
+
+h1
+{
+    font-family: 'Playfair Display', serif; /* New font family */
+    font-size: 3.5rem;
+    color: #d68a7b;
+    margin: -10px 0 20px 0;
+    font-weight: bold; /* Makes the font weight bold */
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Optional: Adds a subtle text shadow for elegance */
+}
+
+.hashtag-container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.85); /* Light background */
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffffff; /* Accent border color */
+    position: relative;
+    overflow: hidden;
+}
+
+.hashtag-container h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #d68a7b;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hashtag-container h7 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #d68a7b;
+    font-weight: bold;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Subtle circular motion for hashtag text */
+@keyframes moveHashtagText {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(20px); /* Move to the right */
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.hashtag-container h1,
+.hashtag-container h7 {
+    display: inline-block;
+    animation: moveHashtagText 5s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hashtag-container h1 {
+        font-size: 2.5rem; /* Smaller font size for mobile */
+    }
+
+    .hashtag-container h7 {
+        font-size: 1.5rem; /* Smaller font size for mobile */
+    }
+}
+
+
+/* Custom font styles for wedding theme */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');

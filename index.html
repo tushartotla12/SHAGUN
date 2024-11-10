@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upload Images</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAGUN</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Upload Multiple Images</h1>
-  <form action="/upload" method="POST" enctype="multipart/form-data">
-    <input type="file" name="images" accept="image/*" multiple>
-    <button type="submit">Upload Images</button>
-  </form>
+    <!-- Header Section with Carousel Images -->
+    <div class="separator"></div>
+    <div class="header-section">
+        <div class="header-carousel">
+            <img src="C:\Users\tusha\Desktop\SHAGUN_SAGAI\SHAGUN\DSC08618.JPG" alt="Couple 1">
+            <img src="C:\Users\tusha\Desktop\SHAGUN_SAGAI\SHAGUN\DSC03286.JPG" alt="Couple 2">
+            <img src="C:\Users\tusha\Desktop\SHAGUN_SAGAI\SHAGUN\DSC01329.JPG" alt="Couple 3">
+            <img src="C:\Users\tusha\Desktop\SHAGUN_SAGAI\SHAGUN\JIJZZZ.jpg" alt="Couple 4">
+            <img src="C:\Users\tusha\Desktop\SHAGUN_SAGAI\SHAGUN\WhatsApp Image 2024-06-06 at 13.10.19_481f9098.jpg" alt="Couple 5">
+            <img src="C:\Users\tusha\Desktop\SHAGUN_SAGAI\GAS--388.JPG" alt="Couple 6">
+            <!-- Repeat for smooth infinite scrolling -->
+            <img src="C:\Users\tusha\Desktop\SHAGUN_SAGAI\SHAGUN\DSC08618.JPG" alt="Couple 1">
+            <img src="C:\Users\tusha\Desktop\SHAGUN_SAGAI\SHAGUN\DSC03286.JPG" alt="Couple 2">
+            <img src="C:\Users\tusha\Desktop\SHAGUN_SAGAI\SHAGUN\DSC01329.JPG" alt="Couple 3">
+            <img src="C:\Users\tusha\Desktop\SHAGUN_SAGAI\SHAGUN\JIJZZZ.jpg" alt="Couple 4">
+            <img src="C:\Users\tusha\Desktop\SHAGUN_SAGAI\SHAGUN\WhatsApp Image 2024-06-06 at 13.10.19_481f9098.jpg" alt="Couple 5">
+            <img src="C:\Users\tusha\Desktop\SHAGUN_SAGAI\GAS--388.JPG" alt="Couple 6">
+        </div>
+    </div>
+
+    <!-- Separator Line -->
+    <div class="separator"></div>
+
+    <!-- Image Upload Section -->
+    <div class="upload-container">
+        <h1>Upload MEMORIES</h1>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="file-upload" class="custom-file-input">Choose Images</label>
+            <input type="file" id="file-upload" name="images" accept="image/*" multiple>
+            <button type="submit">Upload Images</button>
+        </form>
+    </div>
+
+    <!-- Separator at the bottom of upload section -->
+    <div class="separator-bottom"></div>
+
+    <!-- Hashtag Section with Moving Text -->
+    <div class="hashtag-container">
+        <h1>#SHAGUN</h1>
+        <h7>Milan Shakshi aur Gunesh ka!</h7>
+    </div>
+    <div class="separator-bottom"></div>
 </body>
 </html>

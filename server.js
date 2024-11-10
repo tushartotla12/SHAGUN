@@ -1,3 +1,4 @@
+// require('dotenv').config({ path: './.env.local' });
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
@@ -15,24 +16,20 @@ app.use(cors());
 const upload = multer({ dest: 'uploads/' });
 
 // Google Drive authentication (Using a Service Account)
-const SERVICE_ACCOUNT_PATH = 'shagun-441304-4f6c2d45cbe9.json';
-const SCOPES = ['https://www.googleapis.com/auth/drive.file'];
+const serviceAccountCredentials = JSON.parse(
+    Buffer.from(process.env.GOOGLE_SERVICE_ACCOUNT_KEY, 'base64').toString()
+);
 
-const authenticateGoogleDrive = async () => {
-    const auth = new google.auth.GoogleAuth({
-        keyFile: SERVICE_ACCOUNT_PATH,
-        scopes: SCOPES,
-    });
+const auth = new google.auth.GoogleAuth({
+    credentials: serviceAccountCredentials,
+    scopes: ['https://www.googleapis.com/auth/drive.file'],
+});
 
-    const authClient = await auth.getClient();
-    const drive = google.drive({ version: 'v3', auth: authClient });
-    return drive;
-};
+const drive = google.drive({ version: 'v3', auth });
 
 // POST route to handle file uploads
 app.post('/upload', upload.array('images', 10), async (req, res) => {
     try {
-        const drive = await authenticateGoogleDrive();
         const uploadedFiles = req.files;
 
         // Upload files to Google Drive
@@ -42,6 +39,7 @@ app.post('/upload', upload.array('images', 10), async (req, res) => {
                 parents: ['1MvY6adjJDLukF3exKZhexvdfK7HbQQvx'], // Replace with your folder ID in Google Drive
             };
             const media = {
+                mimeType: file.mimetype,
                 body: fs.createReadStream(file.path),
             };
 
@@ -53,14 +51,14 @@ app.post('/upload', upload.array('images', 10), async (req, res) => {
         });
 
         // Wait for all files to be uploaded
-        await Promise.all(filePromises);
-
+        const fileResponses = await Promise.all(filePromises);
+        
         // Clean up local uploaded files
         uploadedFiles.forEach(file => {
             fs.unlinkSync(file.path);
         });
 
-        res.json({ message: 'Files uploaded successfully!' });
+        res.json({ message: 'Files uploaded successfully!', files: fileResponses.map(f => f.data.id) });
     } catch (error) {
         console.error('Error uploading files:', error);
         res.status(500).json({ error: 'Error uploading files' });

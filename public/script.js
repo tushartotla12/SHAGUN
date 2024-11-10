@@ -9,9 +9,9 @@ function displayMessage(message, isError = false) {
 document.getElementById('file-upload').addEventListener('change', function(event) {
     const selectedFiles = event.target.files;
     if (selectedFiles.length > 0) {
-        displayMessage(`${selectedFiles.length} images selected.`);
+        displayMessage(`Please uplaod your MEMORIES to the wedding album!`);
     } else {
-        displayMessage('No image selected.', true);
+        displayMessage('Please add your MEMORIES to the wedding album!');
     }
 });
 
@@ -21,7 +21,7 @@ form.addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from submitting normally
 
     const formData = new FormData(form);
-    displayMessage('Uploading files...', false);  // Show message during upload
+    displayMessage('Saving beautiful memories...', false);  // Show message during upload
 
     fetch('/upload', {
         method: 'POST',
@@ -30,13 +30,14 @@ form.addEventListener('submit', function(event) {
     .then(response => response.json())
     .then(data => {
         if (data.message) {
-            displayMessage('Upload successful! Files have been uploaded.');
+            displayMessage('Your cherished moments are now part of the wedding story. Thank you for contributing to our memories!');
         } else {
-            displayMessage('Error uploading files.', true);
+            displayMessage('Opps I missed saving it! Please upload again', true);
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        displayMessage('An error occurred during the upload.', true);
+        // displayMessage('An error occurred during the upload.', true);
+        alert('An error occurred during the upload');
     });
 });

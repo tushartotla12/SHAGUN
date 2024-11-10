@@ -124,7 +124,7 @@ body {
 .upload-container h1 {
     font-family: 'Playfair Display', serif; /* New font family */
     font-size: 2.5rem;
-    color: #d68a7b;
+    color: #e07661;
     margin: -10px 0 20px 0;
     font-weight: bold; /* Makes the font weight bold */
     letter-spacing: 1px;
@@ -171,6 +171,7 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     margin-top: 20px;
+    font-family: 'Georgia', serif;
 }
    
 button:hover {
@@ -193,7 +194,7 @@ h1
 {
     font-family: 'Playfair Display', serif; /* New font family */
     font-size: 3.5rem;
-    color: #d68a7b;
+    color: #aa2105;
     margin: -10px 0 20px 0;
     font-weight: bold; /* Makes the font weight bold */
     letter-spacing: 1px;
@@ -216,7 +217,7 @@ h1
 .hashtag-container h1 {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    color: #d68a7b;
+    color: #aa2105;
     font-weight: bold;
     margin-bottom: 10px;
     letter-spacing: 1px;
@@ -227,7 +228,7 @@ h1
 .hashtag-container h7 {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
-    color: #d68a7b;
+    color: #aa2105;
     font-weight: bold;
     margin-top: 10px;
     letter-spacing: 1px;

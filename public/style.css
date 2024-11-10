@@ -195,7 +195,7 @@ h1
     font-family: 'Playfair Display', serif; /* New font family */
     font-size: 3.5rem;
     color: #aa2105;
-    margin: -10px 0 20px 0;
+    margin: -8px 0 0px 0;
     font-weight: bold; /* Makes the font weight bold */
     letter-spacing: 1px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Optional: Adds a subtle text shadow for elegance */
@@ -204,13 +204,13 @@ h1
 .hashtag-container {
     width: 60%;
     margin: 0 auto;
-    padding: 10px;
+    /* padding: 10px; */
     background-color: rgba(255, 255, 255, 0.85); /* Light background */
     text-align: center;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 2px solid #ffffff; /* Accent border color */
-    position: relative;
+    /* position: relative; */
     overflow: hidden;
 }
 
@@ -219,7 +219,7 @@ h1
     font-size: 3rem;
     color: #aa2105;
     font-weight: bold;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
     letter-spacing: 1px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     animation: fadeIn 2s ease-in-out;
@@ -230,7 +230,7 @@ h1
     font-size: 1.8rem;
     color: #aa2105;
     font-weight: bold;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     letter-spacing: 1px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -257,26 +257,12 @@ h1
 /* Responsive Design */
 @media (max-width: 768px) {
     .hashtag-container h1 {
-        font-size: 2.5rem; /* Smaller font size for mobile */
+        font-size: 1.5rem; /* Smaller font size for mobile */
     }
 
     .hashtag-container h7 {
-        font-size: 1.5rem; /* Smaller font size for mobile */
+        font-size: 1rem; /* Smaller font size for mobile */
     }
-}
-
-.notification {
-    display: none; /* Initially hidden */
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: #d68a7b;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    font-size: 1rem;
-    z-index: 1000;
 }
 
 
@@ -284,5 +270,66 @@ h1
     margin-top: 20px;
     font-size: 16px;
     font-weight: bold;
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+    body {
+        background-size: cover;
+    }
+
+    .header-section {
+        height: 35%;
+        width: 80%;
+    }
+
+    .upload-container {
+        width: 80%;
+        height: 55%;
+    }
+
+    .hashtag-container {
+        width: 90%;
+        height: 10%;
+    }
+
+    .upload-container h1 {
+        font-size: 1.9rem;
+    }
+
+    .hashtag-container h1 {
+        font-size: 1.5rem;
+     }
+
+    .hashtag-container h7 {
+        font-size: 1rem;
+    }
+}
+
+/* For screens larger than 768px (desktop view) */
+@media (min-width: 769px) {
+    body {
+        background-size: cover;
+    }
+
+    .upload-container {
+        width: 40%;
+    }
+
+    .hashtag-container {
+        width: 60%;
+    }
+
+    .upload-container h1 {
+        font-size: 2.5rem;
+    }
+
+    .hashtag-container h1 {
+        font-size: 3rem;
+    }
+
+    .hashtag-container h7 {
+        font-size: 1.8rem;
+    }
 }
 

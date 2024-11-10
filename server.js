@@ -15,7 +15,7 @@ app.use(cors());
 const upload = multer({ dest: 'uploads/' });
 
 // Google Drive authentication (Using a Service Account)
-const SERVICE_ACCOUNT_PATH = 'C:/Users/tusha/Desktop/imgupload/shagun-441304-4f6c2d45cbe9.json';
+const SERVICE_ACCOUNT_PATH = 'shagun-441304-4f6c2d45cbe9.json';
 const SCOPES = ['https://www.googleapis.com/auth/drive.file'];
 
 const authenticateGoogleDrive = async () => {

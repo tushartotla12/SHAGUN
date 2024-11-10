@@ -264,6 +264,24 @@ h1
     }
 }
 
+.notification {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #d68a7b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    z-index: 1000;
+}
 
-/* Custom font styles for wedding theme */
+
+.message-container {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
 

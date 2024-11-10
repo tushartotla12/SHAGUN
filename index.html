@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHAGUN</title>
     <link href="/style.css" rel="stylesheet">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"> -->
 </head>
 <body>
     <!-- Header Section with Carousel Images -->
@@ -28,27 +29,31 @@
         </div>
     </div>
 
-    <!-- Separator Line -->
     <div class="separator"></div>
 
     <!-- Image Upload Section -->
     <div class="upload-container">
         <h1>Upload MEMORIES</h1>
-        <form action="/upload" method="POST" enctype="multipart/form-data">
+        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
             <label for="file-upload" class="custom-file-input">Choose Images</label>
             <input type="file" id="file-upload" name="images" accept="image/*" multiple>
             <button type="submit">Upload Images</button>
         </form>
+
+        <!-- Section to display messages -->
+        <div id="message-container" class="message-container"></div>
     </div>
 
-    <!-- Separator at the bottom of upload section -->
     <div class="separator-bottom"></div>
 
-    <!-- Hashtag Section with Moving Text -->
     <div class="hashtag-container">
         <h1>#SHAGUN</h1>
         <h7>Milan Shakshi aur Gunesh ka!</h7>
     </div>
     <div class="separator-bottom"></div>
+
+    <!-- Include external script -->
+    <script src="/script.js"></script>
 </body>
 </html>
+

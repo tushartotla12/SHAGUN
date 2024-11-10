@@ -1,4 +1,4 @@
-// require('dotenv').config({ path: './.env.local' });
+require('dotenv').config({ path: './.env.local' });
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
@@ -6,9 +6,10 @@ const { google } = require('googleapis');
 const fs = require('fs');
 const cors = require('cors');
 
+
 const app = express();
 const port = 3000;
-
+app.use(express.static('public'));
 // Enable CORS to allow cross-origin requests
 app.use(cors());
 

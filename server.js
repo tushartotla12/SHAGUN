@@ -1,4 +1,4 @@
-// require('dotenv').config({ path: './.env.local' });
+require('dotenv').config({ path: './.env.local' });
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
@@ -6,15 +6,14 @@ const { google } = require('googleapis');
 const fs = require('fs');
 const cors = require('cors');
 
-
 const app = express();
 const port = 3000;
+
 app.use(express.static('public'));
-// Enable CORS to allow cross-origin requests
 app.use(cors());
 
-// Set up Multer for file upload
-const upload = multer({ dest: 'uploads/' });
+// Set up Multer to handle any file field for now (change back to `array` after testing)
+const upload = multer({ dest: 'uploads/' }).any();
 
 // Google Drive authentication (Using a Service Account)
 const serviceAccountCredentials = JSON.parse(
@@ -29,12 +28,14 @@ const auth = new google.auth.GoogleAuth({
 const drive = google.drive({ version: 'v3', auth });
 
 // POST route to handle file uploads
-app.post('/upload', upload.array('images', 10), async (req, res) => {
+app.post('/upload', upload, async (req, res) => {
     try {
-        const uploadedFiles = req.files;
+        if (!req.files || req.files.length === 0) {
+            return res.status(400).json({ error: 'No files were uploaded.' });
+        }
 
         // Upload files to Google Drive
-        const filePromises = uploadedFiles.map(file => {
+        const filePromises = req.files.map(file => {
             const fileMetadata = {
                 name: file.originalname,
                 parents: ['1MvY6adjJDLukF3exKZhexvdfK7HbQQvx'], // Replace with your folder ID in Google Drive
@@ -53,9 +54,9 @@ app.post('/upload', upload.array('images', 10), async (req, res) => {
 
         // Wait for all files to be uploaded
         const fileResponses = await Promise.all(filePromises);
-        
+
         // Clean up local uploaded files
-        uploadedFiles.forEach(file => {
+        req.files.forEach(file => {
             fs.unlinkSync(file.path);
         });
 
